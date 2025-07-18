@@ -11,11 +11,6 @@
 
 ---
 
-### 📸 Screenshots
-![Register Page](screenshot-register.png)
-![Login Page](screenshot-login.png)
-
----
 
 ## 🔧 Tech Stack
 - **Frontend:** React, TailwindCSS
