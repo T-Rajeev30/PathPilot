@@ -151,9 +151,9 @@ const Register = () => {
         {/* Right Section */}
         <div
           className="
-            rightsection w-full md:w-1/2
+            rightsection w-full hidden md:w-1/2
             bg-gradient-to-br from-orange-500 to-red-400
-            flex items-center justify-center 
+            md:flex items-center justify-center 
           "
         >
           {/* Replace with your illustration */}

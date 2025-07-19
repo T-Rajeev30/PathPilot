@@ -171,9 +171,9 @@ const Login = () => {
         {/* Right Section */}
         <div
           className="
-            rightsection w-full md:w-1/2
+            rightsection w-full md:w-1/2 hidden md:flex
             bg-gradient-to-br from-orange-500 to-red-400
-            flex items-center justify-center relative
+             items-center justify-center relative
             p-10
           "
         >
