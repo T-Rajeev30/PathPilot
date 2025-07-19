@@ -25,9 +25,8 @@
 ---
 
 ### 📸 Screenshots
-![Register Page](screenshot-register.png)  
-![Login Page](screenshot-login.png)  
-![Backend Connection](screenshot-backend.png)
+![Register Page](screenshot-register.png)
+![Login Page](screenshot-login.png)
 
 ---
 
