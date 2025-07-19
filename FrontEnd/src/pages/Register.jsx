@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import registersvg from "../assets/Register-bro.svg";
 import { toast } from "react-toastify";
+import { registerUser } from "../api/auth";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password || !name) {
       toast.error("Please fill all fields");
@@ -25,8 +26,13 @@ const Register = () => {
       return;
     }
 
-    console.log({ name, email, password });
-    toast.success("Sign-Up  Successful");
+    try {
+      const { data } = await registerUser({ name, email, password });
+      toast.success("Sign-Up  Successful");
+      console.log(data);
+    } catch (error) {
+      toast.error(error.responnse?.data?.message || "SomeThing Went Wrong");
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-300 px-4">

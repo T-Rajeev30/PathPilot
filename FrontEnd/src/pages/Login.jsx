@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import loginsvg from "../assets/Login-bro.svg";
 import { toast } from "react-toastify";
+import { loginUser } from "../api/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -28,7 +29,13 @@ const Login = () => {
       return;
     }
 
-    toast.success("Login Successful");
+    try {
+      const { data } = await loginUser({ email, password });
+      toast.success("Login Successful");
+      console.log(data);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Invalid Credentials ");
+    }
   };
 
   return (
