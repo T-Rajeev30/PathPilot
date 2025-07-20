@@ -24,24 +24,34 @@
 
 ---
 
+## ✅ Day 3 Progress
+- Implemented **AuthContext** for global authentication state  
+- **Login stores JWT token** in `localStorage`  
+- Added **ProtectedRoute** component to secure Dashboard access  
+- Implemented **Logout** (clears token & redirects to Login)  
+- Built a **fully responsive Dashboard UI** (Sidebar, Navbar, Summary Cards, Pie Chart, Line Chart, Transactions section)  
+
+---
+
 ### 📸 Screenshots
 ![Register Page](screenshot-register.png)
 ![Login Page](screenshot-login.png)
+![Dashboard Page](screenshot-dashboard.png)
 
 ---
 
 ## 🔧 Tech Stack
-- **Frontend:** React, TailwindCSS, Axios, React Toastify  
+- **Frontend:** React, TailwindCSS, Axios, React Toastify, Recharts  
 - **Backend:** Node.js, Express.js, MongoDB, Mongoose, JWT, bcrypt  
 - **Tools:** Postman, Thunder Client  
 
 ---
 
 ## 🎯 Next Steps
-- Implement **token storage (localStorage)** in frontend  
-- Add **protected routes** and user sessions  
-- Create **Logout** and **Auth middleware** on backend  
-- Prepare **dashboard skeleton UI** for logged-in users  
+- Connect **Dashboard UI** with backend APIs (real finance data)  
+- Implement **transactions & finance tracking features**  
+- Add **charts and analytics with live data**  
+- Build settings & user profile page  
 
 ---
 
