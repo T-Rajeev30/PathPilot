@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import loginsvg from "../assets/Login-bro.svg";
 import { toast } from "react-toastify";
 import { loginUser } from "../api/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +34,15 @@ const Login = () => {
 
     try {
       const { data } = await loginUser({ email, password });
-      toast.success("Login Successful");
-      console.log(data);
+      // console.log(data.token);
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        toast.success("Login Successful");
+        //console.log(data);
+        navigate("/dashboard");
+      } else {
+        toast.error("Login failed. No token received.");
+      }
     } catch (error) {
       toast.error(error.response?.data?.message || "Invalid Credentials ");
     }

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import registersvg from "../assets/Register-bro.svg";
 import { toast } from "react-toastify";
 import { registerUser } from "../api/auth";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password || !name) {
@@ -28,10 +30,13 @@ const Register = () => {
 
     try {
       const { data } = await registerUser({ name, email, password });
-      toast.success("Sign-Up  Successful");
-      console.log(data);
+      toast.success("Registration Successfull Please Login ! ");
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+      navigate("/login"); // Redirect to Dashboard
     } catch (error) {
-      toast.error(error.responnse?.data?.message || "SomeThing Went Wrong");
+      toast.error(error.response?.data?.message || "SomeThing Went Wrong");
     }
   };
   return (
