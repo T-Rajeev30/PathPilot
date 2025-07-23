@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 
 import authRoutes from "./routes/authRoutes.js";
+import transactionsrouter from "./routes/TransactionRoutes.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("API is Working"));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/transactions", transactionsrouter);
 
 connectDB();
 
